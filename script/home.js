@@ -51,3 +51,18 @@ addMoneyBtn.addEventListener('click', function (e) {
   const newAbailableBlance = amount + availableBalance;
   document.getElementById('available-balance').innerText = newAbailableBlance;
 })
+
+// Toggling functionality
+const addMoney = document.getElementById('add-money');
+const addMoneySection = document.getElementById('add-money-section');
+const cashOut =document.getElementById('cash-out');
+const cashOutSection = document.getElementById('cash-out-section');
+
+addMoney.addEventListener('click', function(){
+  addMoneySection.style.display = "block"
+  cashOutSection.style.display = "none"
+})
+cashOut.addEventListener('click', function(){
+  cashOutSection.style.display = "block"
+  addMoneySection.style.display = "none"
+})
