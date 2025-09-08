@@ -1,0 +1,53 @@
+// Add money section
+const addMoneyBtn = document.getElementById('add-money-btn');
+
+// Valid credentials
+const validAccountNumber = "12345678910";
+const validPIN = "1234";
+
+// Add money button functionality
+addMoneyBtn.addEventListener('click', function (e) {
+  e.preventDefault()
+  const bankName = document.getElementById('bank-account').value;
+  const bankAccountNumber = document.getElementById('account-number').value.trim();
+  const bankAccountPIN = document.getElementById('pin').value.trim();
+  const amount = parseInt(document.getElementById('add-amount').value);
+  const availableBalance = parseInt(document.getElementById('available-balance').innerText);
+
+  // Validation
+  if (
+    bankName === "" ||
+    bankAccountNumber === "" ||
+    bankAccountPIN === "" ||
+    isNaN(amount) ||
+    amount === null
+  ) {
+    alert("Please enter Bank Name, Account Number, Amount, and PIN");
+    return;
+  }
+
+  if (bankAccountNumber.length !== 11 || isNaN(Number(bankAccountNumber))) {
+    alert("Please enter a valid 11-digit account number");
+    return;
+  }
+
+  if (bankAccountPIN.length !== 4 || isNaN(Number(bankAccountPIN))) {
+    alert("Please enter a valid 4-digit PIN");
+    return;
+  }
+
+  if (amount < 1 ) {
+    alert("Please enter a valid amount");
+    return;
+  }
+
+  if (bankAccountNumber === validAccountNumber && bankAccountPIN === validPIN){
+    alert("Add money successful")
+  }else{
+    alert("Valid account and PIN number!")
+    return;
+  }
+
+  const newAbailableBlance = amount + availableBalance;
+  document.getElementById('available-balance').innerText = newAbailableBlance;
+})
