@@ -62,6 +62,27 @@ cashOutBtn.addEventListener('click',function(){
   const amount = parseInt(document.getElementById('cash-out-amount').value);
   const availableBalance = parseInt(document.getElementById('available-balance').innerText);
 
+  // Validation
+  if(bankAccountNumber === "" || bankAccountPIN === "" || amount === "" || isNaN(amount) || amount === null){
+    alert("Please enter Agent Number, Amount, and PIN")
+    return;
+  }
+
+  if(bankAccountNumber.length !== 11 || isNaN(Number(bankAccountNumber))){
+    alert("Please enter a valid 11-digit agent number")
+    return;
+  }
+
+  if (bankAccountPIN.length !== 4 || isNaN(Number(bankAccountPIN))){
+    alert("Please enter a valid 4-digit PIN !")
+  }
+
+  if (bankAccountNumber === validAccountNumber && bankAccountPIN === validPIN){
+    alert("Cash out succcessful !")
+  }else{
+    alert("Wrong credential")
+    return;
+  }
   const newAbailableBlance = availableBalance - amount;
   document.getElementById('available-balance').innerText = newAbailableBlance;
   
