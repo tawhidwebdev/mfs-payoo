@@ -10,7 +10,7 @@ addMoneyBtn.addEventListener('click', function (e) {
   e.preventDefault()
   const bankName = document.getElementById('bank-account').value;
   const bankAccountNumber = document.getElementById('account-number').value.trim();
-  const bankAccountPIN = document.getElementById('pin').value.trim();
+  const bankAccountPIN = document.getElementById('add-money-pin').value.trim();
   const amount = parseInt(document.getElementById('add-amount').value);
   const availableBalance = parseInt(document.getElementById('available-balance').innerText);
 
@@ -52,6 +52,25 @@ addMoneyBtn.addEventListener('click', function (e) {
   document.getElementById('available-balance').innerText = newAbailableBlance;
 })
 
+// Cash out section
+const cashOutBtn = document.getElementById('cash-out-btn');
+
+// Cash out button functionality
+cashOutBtn.addEventListener('click',function(){
+  const bankAccountNumber = document.getElementById('agent-number').value.trim();
+  const bankAccountPIN = document.getElementById('cash-out-pin').value.trim();
+  const amount = parseInt(document.getElementById('cash-out-amount').value);
+  const availableBalance = parseInt(document.getElementById('available-balance').innerText);
+
+  const newAbailableBlance = availableBalance - amount;
+  document.getElementById('available-balance').innerText = newAbailableBlance;
+  
+  
+  
+  
+  
+})
+
 // Toggling functionality
 const addMoney = document.getElementById('add-money');
 const addMoneySection = document.getElementById('add-money-section');
@@ -66,3 +85,5 @@ cashOut.addEventListener('click', function(){
   cashOutSection.style.display = "block"
   addMoneySection.style.display = "none"
 })
+
+
