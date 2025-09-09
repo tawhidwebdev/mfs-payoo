@@ -47,7 +47,7 @@
         <img src="./images/send1.png" alt="">
         <span class="text-sm/normal text-[#080808b3] font-normal">Cashout</span>
       </div>
-      <div id="transfer_money"
+      <div id="transfer-money"
         class="px-2.5 py-5 border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
         <img src="./images/money1.png" alt="">
         <span class="text-sm/normal text-[#080808b3] font-normal">Transfer Money</span>
@@ -91,9 +91,11 @@
             <input id="account-number" type="text" class="input bg-[#F4F5F7] rounded-4xl"
               placeholder="Enter 11 digit account number" />
             <legend class="fieldset-legend">Amount to Add</legend>
-            <input id="add-amount" type="text" class="input bg-[#F4F5F7] rounded-4xl" placeholder="Enter amount to add" />
+            <input id="add-amount" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter amount to add" />
             <legend class="fieldset-legend ">Pin Number</legend>
-            <input id="add-money-pin" type="text" class="input bg-[#F4F5F7] rounded-4xl" placeholder="Enter 4 Digit Pin" />
+            <input id="add-money-pin" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter 4 Digit Pin" />
             <button id="add-money-btn" class="btn btn-primary mt-3 rounded-4xl">Add Money</button>
           </fieldset>
         </div>
@@ -110,10 +112,33 @@
             <input id="agent-number" type="text" class="input bg-[#F4F5F7] rounded-4xl"
               placeholder="Enter 11 digit agent number" />
             <legend class="fieldset-legend">Amount</legend>
-            <input id="cash-out-amount" type="text" class="input bg-[#F4F5F7] rounded-4xl" placeholder="Enter amount to withdraw" />
+            <input id="cash-out-amount" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter amount to withdraw" />
             <legend class="fieldset-legend ">Pin Number</legend>
-            <input id="cash-out-pin" type="text" class="input bg-[#F4F5F7] rounded-4xl" placeholder="Enter 4 Digit Pin" />
+            <input id="cash-out-pin" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter 4 Digit Pin" />
             <button id="cash-out-btn" class="btn btn-primary mt-3 rounded-4xl">Withdraw Money</button>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transfer money section -->
+    <div id="transfer-money-section" class="bg-[#F4F5F7] px-6 pb-7 mt-8 hidden">
+      <h2 class="text-[18px] text-[#080808e6] font-semibold mb-4">Transfer Money</h2>
+      <div class="flex items-center justify-center w-full">
+        <div class="bg-white p-9 rounded-3xl w-full">
+          <fieldset class="fieldset w-full text-base font-medium border-0">
+            <legend class="fieldset-legend">User Account Number</legend>
+            <input id="user-account-number" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter 11 digit number" />
+            <legend class="fieldset-legend">Amount</legend>
+            <input id="transfer-amount" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter the amount to transfer" />
+            <legend class="fieldset-legend ">Pin Number</legend>
+            <input id="transfer-pin" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter 4 Digit Pin" />
+            <button id="transfer-money-btn" class="btn btn-primary mt-3 rounded-4xl">Send Now</button>
           </fieldset>
         </div>
       </div>
