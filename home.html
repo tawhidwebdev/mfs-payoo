@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Mony</title>
+  <title>Payoo MFS</title>
   <!-- daisy UI CDN -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <!-- Tailwind css CDN -->
@@ -19,7 +19,7 @@
 <body class="bg-[#F4F5F7] h-dvh max-w-100 mx-auto">
   <div class="nav border-b-1 border-b-[#0808081a] px-6 py-2.5 flex justify-between items-center bg-white">
     <div class="logo flex items-center gap-x-2">
-      <a href="file:///E:/practis/payoo-mfs/home.html">
+      <a href="file:///E:/practis/mfs-payoo/home.html">
         <img src="./images/group.png" alt="LOGO" class="w-12.5 h-12.5 cursor-pointer">
       </a>
       <div>
@@ -52,7 +52,7 @@
         <img src="./images/money1.png" alt="">
         <span class="text-sm/normal text-[#080808b3] font-normal">Transfer Money</span>
       </div>
-      <div id="get_bonus"
+      <div id="get-bonus"
         class="px-2.5 py-5 border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
         <img src="./images/bonus1.png" alt="">
         <span class="text-sm/normal text-[#080808b3] font-normal">Get Bonus</span>
@@ -143,6 +143,22 @@
         </div>
       </div>
     </div>
+
+    <!-- Get bonus section -->
+     <div id="get-bonus-section" class="bg-[#F4F5F7] px-6 pb-7 mt-8 hidden">
+      <h2 class="text-[18px] text-[#080808e6] font-semibold mb-4">Get Bonus</h2>
+      <div class="flex items-center justify-center w-full">
+        <div class="bg-white p-9 rounded-3xl w-full">
+          <fieldset class="fieldset w-full text-base font-medium border-0">
+            <legend class="fieldset-legend ">Enter Bonus Coupon</legend>
+            <input id="coupon-code" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter your coupon" />
+            <button id="get-bonus-btn" class="btn btn-primary mt-3 rounded-4xl">Get Bonus</button>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
   </div>
   <script src="./script/home.js"></script>
 </body>

@@ -1,10 +1,9 @@
-// Add money section
-const addMoneyBtn = document.getElementById('add-money-btn');
-
 // Valid credentials
 const validAccountNumber = "12345678910";
 const validPIN = "1234";
 
+// Add money section
+const addMoneyBtn = document.getElementById('add-money-btn');
 // Add money functionality
 addMoneyBtn.addEventListener('click', function (e) {
   e.preventDefault()
@@ -54,7 +53,6 @@ addMoneyBtn.addEventListener('click', function (e) {
 
 // Cash out section
 const cashOutBtn = document.getElementById('cash-out-btn');
-
 // Cash out functionality
 cashOutBtn.addEventListener('click', function () {
   const bankAccountNumber = document.getElementById('agent-number').value.trim();
@@ -94,7 +92,6 @@ cashOutBtn.addEventListener('click', function () {
 
 //  Transfer money section
 const transferMoneyBtn = document.getElementById('transfer-money-btn');
-
 // Transfer money functionality
 transferMoneyBtn.addEventListener('click', function(e){
   e.preventDefault()
@@ -102,6 +99,34 @@ transferMoneyBtn.addEventListener('click', function(e){
   const bankAccountPIN = document.getElementById('transfer-pin').value.trim();
   const amount = parseInt(document.getElementById('transfer-amount').value);
   const availableBalance = document.getElementById('available-balance').innerText;
+})
+
+// Get bonus section
+const getBonusBtn = document.getElementById('get-bonus-btn');
+// Get bonus functionality
+getBonusBtn.addEventListener('click', function(e){
+  e.preventDefault();
+  const couponCode = document.getElementById('coupon-code').value.trim();
+  const availableBalance = parseInt(document.getElementById('available-balance').innerText);
+  const myCoupon = "MYCOUPON";
+  const bonus = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+
+  if(couponCode === ""){
+    alert("Please enter your coupon code")
+    return;
+  }
+
+  if(couponCode === myCoupon){
+    alert(`🎉 Congratulations! You won ${bonus} taka`)
+  }else{
+    alert("❌ Invalid Coupon Code. Try again!")
+    return;
+  }
+
+  const newAbailableBlance = availableBalance + bonus;
+  document.getElementById('available-balance').innerText = newAbailableBlance;
+  
+  
 })
 
 // Toggling functionality
@@ -114,19 +139,31 @@ const cashOutSection = document.getElementById('cash-out-section');
 const transferMoney = document.getElementById('transfer-money');
 const transferMoneySection = document.getElementById('transfer-money-section');
 
+const getBonus = document.getElementById('get-bonus');
+const getBonusSection = document.getElementById('get-bonus-section');
+
 addMoney.addEventListener('click', function () {
   addMoneySection.style.display = "block"
   cashOutSection.style.display = "none"
   transferMoneySection.style.display = "none"
+  getBonusSection.style.display = "none"
 })
 cashOut.addEventListener('click', function () {
   cashOutSection.style.display = "block"
   addMoneySection.style.display = "none"
   transferMoneySection.style.display = "none"
+  getBonusSection.style.display = "none"
 })
 transferMoney.addEventListener('click', function(){
   transferMoneySection.style.display = "block"
   addMoneySection.style.display = "none"
   cashOutSection.style.display = "none"
+  getBonusSection.style.display = "none"
+})
+getBonus.addEventListener('click', function(){
+  getBonusSection.style.display = "block"
+  addMoneySection.style.display = "none"
+  cashOutSection.style.display = "none"
+  transferMoneySection.style.display = "none"
 })
 
