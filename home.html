@@ -159,6 +159,37 @@
       </div>
     </div>
 
+    <!-- Pay bill section -->
+    <div id="pay-bill-section" class="bg-[#F4F5F7] px-6 pb-7 mt-8">
+      <h2 class="text-[18px] text-[#080808e6] font-semibold mb-4">Pay Bill</h2>
+      <div class="flex items-center justify-center w-full">
+        <div class="bg-white p-9 rounded-3xl w-full">
+          <fieldset class="fieldset w-full text-base font-medium border-0">
+            <legend class="fieldset-legend">Select To Payk</legend>
+            <input id="pay-bill-bank-account" type="text" class="input bg-[#F4F5F7] rounded-4xl" placeholder="Select back"
+              list="browsers" />
+            <datalist id="browsers">
+              <option value="Sonali Bank"></option>
+              <option value="AB Bank"></option>
+              <option value="DBBL Bank"></option>
+              <option value="Rupali Bank"></option>
+              <option value="Krishi Bank"></option>
+            </datalist>
+            <legend class="fieldset-legend">Biller Account Number</legend>
+            <input id="biller-account-number" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter account number" />
+            <legend class="fieldset-legend">Amount to Pay</legend>
+            <input id="pay-amount" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Add Amount to pay" />
+            <legend class="fieldset-legend ">Pin Number</legend>
+            <input id="pay-bill-pin" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Enter 4 Digit Pin" />
+            <button id="pay-now-btn" class="btn btn-primary mt-3 rounded-4xl">Pay Now</button>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
   </div>
   <script src="./script/home.js"></script>
 </body>

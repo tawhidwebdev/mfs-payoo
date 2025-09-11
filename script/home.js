@@ -83,17 +83,12 @@ cashOutBtn.addEventListener('click', function () {
   }
   const newAbailableBlance = availableBalance - amount;
   document.getElementById('available-balance').innerText = newAbailableBlance;
-
-
-
-
-
 })
 
 //  Transfer money section
 const transferMoneyBtn = document.getElementById('transfer-money-btn');
 // Transfer money functionality
-transferMoneyBtn.addEventListener('click', function(e){
+transferMoneyBtn.addEventListener('click', function (e) {
   e.preventDefault()
   const bankAccountNumber = document.getElementById('user-account-number').value.trim();
   const bankAccountPIN = document.getElementById('transfer-pin').value.trim();
@@ -104,28 +99,70 @@ transferMoneyBtn.addEventListener('click', function(e){
 // Get bonus section
 const getBonusBtn = document.getElementById('get-bonus-btn');
 // Get bonus functionality
-getBonusBtn.addEventListener('click', function(e){
+getBonusBtn.addEventListener('click', function (e) {
   e.preventDefault();
   const couponCode = document.getElementById('coupon-code').value.trim();
   const availableBalance = parseInt(document.getElementById('available-balance').innerText);
   const myCoupon = "MYCOUPON";
   const bonus = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
 
-  if(couponCode === ""){
+  if (couponCode === "") {
     alert("Please enter your coupon code")
     return;
   }
 
-  if(couponCode === myCoupon){
+  if (couponCode === myCoupon) {
     alert(`🎉 Congratulations! You won ${bonus} taka`)
-  }else{
+  } else {
     alert("❌ Invalid Coupon Code. Try again!")
     return;
   }
 
   const newAbailableBlance = availableBalance + bonus;
   document.getElementById('available-balance').innerText = newAbailableBlance;
-  
+})
+
+// Pay bill section
+const payNowBtn = document.getElementById('pay-now-btn')
+// Pay bill functionality
+payNowBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  const bankAccount = document.getElementById('pay-bill-bank-account').value;
+  const billerAccountNumber = document.getElementById('biller-account-number').value.trim();
+  const pin = document.getElementById('pay-bill-pin').value.trim();
+  const amount = parseInt(document.getElementById('pay-amount').value);
+  const availableBalance = parseInt(document.getElementById('available-balance').innerText);
+
+  if (bankAccount === "" || billerAccountNumber === "" || pin === "" || isNaN(amount) || amount === null) {
+    alert("Please select Bank Name, Account Number, Amount, and PIN")
+    return;
+  }
+
+  if (billerAccountNumber.length !== 11 || isNaN(Number(billerAccountNumber))) {
+    alert("Please enter a valid 11-digit account number");
+    return;
+  }
+
+  if (amount < 1 || amount > availableBalance) {
+    alert("Please enter a valid amount");
+    return;
+  }
+
+  if (pin.length !== 4 || isNaN(Number(pin))) {
+    alert("Plrase enter a valid 4-digit PIN")
+    return;
+  }
+
+  if(billerAccountNumber === validAccountNumber && pin === validPIN){
+    alert("Pay bill successful !");
+  }else{
+    alert("Wrong credential");
+    return;
+  }
+
+  const newAbailableBlance = availableBalance - amount;
+  document.getElementById('available-balance').innerText = newAbailableBlance;
+  console.log(newAbailableBlance);
   
 })
 
@@ -154,13 +191,13 @@ cashOut.addEventListener('click', function () {
   transferMoneySection.style.display = "none"
   getBonusSection.style.display = "none"
 })
-transferMoney.addEventListener('click', function(){
+transferMoney.addEventListener('click', function () {
   transferMoneySection.style.display = "block"
   addMoneySection.style.display = "none"
   cashOutSection.style.display = "none"
   getBonusSection.style.display = "none"
 })
-getBonus.addEventListener('click', function(){
+getBonus.addEventListener('click', function () {
   getBonusSection.style.display = "block"
   addMoneySection.style.display = "none"
   cashOutSection.style.display = "none"
