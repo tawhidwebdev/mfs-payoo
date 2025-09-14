@@ -2,6 +2,9 @@
 const validAccountNumber = "12345678910";
 const validPIN = "1234";
 
+// Transactions array
+const transactionsData = [];
+
 // Add money section
 const addMoneyBtn = document.getElementById('add-money-btn');
 // Add money functionality
@@ -49,7 +52,16 @@ addMoneyBtn.addEventListener('click', function (e) {
 
   const newAbailableBlance = amount + availableBalance;
   document.getElementById('available-balance').innerText = newAbailableBlance;
+
+  // Add transaction to array
+  const data = {
+    name: "Add Money",
+    date: new Date().toLocaleTimeString()
+  }
+  transactionsData.push(data);
+  console.log(transactionsData);
 })
+
 
 // Cash out section
 const cashOutBtn = document.getElementById('cash-out-btn');
@@ -83,6 +95,14 @@ cashOutBtn.addEventListener('click', function () {
   }
   const newAbailableBlance = availableBalance - amount;
   document.getElementById('available-balance').innerText = newAbailableBlance;
+
+  // Add transaction to array
+  const data = {
+    name: "Cash Out",
+    date: new Date().toLocaleTimeString()
+  }
+  transactionsData.push(data);
+  console.log(transactionsData);
 })
 
 //  Transfer money section
@@ -120,6 +140,14 @@ getBonusBtn.addEventListener('click', function (e) {
 
   const newAbailableBlance = availableBalance + bonus;
   document.getElementById('available-balance').innerText = newAbailableBlance;
+
+  // Add transaction to array
+  const data = {
+    name: "Get Bonus",
+    date: new Date().toLocaleTimeString()
+  }
+  transactionsData.push(data);
+  console.log(transactionsData);
 })
 
 // Pay bill section
@@ -162,7 +190,43 @@ payNowBtn.addEventListener('click', function (e) {
 
   const newAbailableBlance = availableBalance - amount;
   document.getElementById('available-balance').innerText = newAbailableBlance;
-  console.log(newAbailableBlance);
+
+  // Add transaction to array
+  const data = {
+    name: "Pay Bill",
+    date: new Date().toLocaleTimeString()
+  }
+  transactionsData.push(data);
+  console.log(transactionsData);
+
+})
+
+// Transactions section
+const showTransactions = document.getElementById('transactions');
+showTransactions.addEventListener('click', function () {
+
+  const transactionsCards = document.getElementById('transactions-cards');
+  transactionsCards.innerText = "";
+
+  for (const data of transactionsData) {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <div class="flex flex-col-reverse gap-y-3">
+        <div class="px-4 py-3 border border-[#0808081a] bg-white rounded-xl flex items-center justify-between">
+          <div class="flex items-center gap-x-2">
+            <picture class="w-11 h-11 bg-[#0808080d] flex items-center justify-center rounded-full"><img
+                src="./images/wallet1.png" alt=""></picture>
+            <div>
+              <h4 class="text-base/normal text-[#080808b3] font-semibold">${data.name}</h4>
+              <span class="text-xs/normal text-[#080808b3] font-normal">${data.date}</span>
+            </div>
+          </div>
+          <div><i class="fa-solid fa-ellipsis-vertical text-[#080808b3] text-2xl"></i></div>
+        </div>
+      </div>
+    `
+    transactionsCards.appendChild(div);
+  }
 
 })
 
@@ -191,6 +255,7 @@ addMoney.addEventListener('click', function () {
   transferMoneySection.style.display = "none"
   getBonusSection.style.display = "none"
   payBillSection.style.display = "none"
+  transactionsSection.style.display = "none"
 
   const formBtns = document.getElementsByClassName('form-btn');
   for (const btn of formBtns) {
@@ -207,6 +272,7 @@ cashOut.addEventListener('click', function () {
   transferMoneySection.style.display = "none"
   getBonusSection.style.display = "none"
   payBillSection.style.display = "none"
+  transactionsSection.style.display = "none"
 
   const formBtns = document.getElementsByClassName('form-btn');
   for (const btn of formBtns) {
@@ -223,9 +289,10 @@ transferMoney.addEventListener('click', function () {
   cashOutSection.style.display = "none"
   getBonusSection.style.display = "none"
   payBillSection.style.display = "none"
+  transactionsSection.style.display = "none"
 
   const formBtns = document.getElementsByClassName('form-btn');
-  for (const btn of formBtns){
+  for (const btn of formBtns) {
     btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
     btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
 
@@ -239,9 +306,10 @@ getBonus.addEventListener('click', function () {
   cashOutSection.style.display = "none"
   transferMoneySection.style.display = "none"
   payBillSection.style.display = "none"
+  transactionsSection.style.display = "none"
 
   const formBtns = document.getElementsByClassName('form-btn');
-  for (const btn of formBtns){
+  for (const btn of formBtns) {
     btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
     btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
 
@@ -255,14 +323,32 @@ payBill.addEventListener('click', function () {
   cashOutSection.style.display = "none"
   transferMoneySection.style.display = "none"
   getBonusSection.style.display = "none"
+  transactionsSection.style.display = "none"
 
   const formBtns = document.getElementsByClassName('form-btn');
-  for (const btn of formBtns){
+  for (const btn of formBtns) {
     btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
     btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
 
     document.getElementById('pay-bill').classList.remove("border-[#0808081a]", "text-[#080808b3]");
     document.getElementById('pay-bill').classList.add("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+  }
+})
+transactions.addEventListener('click', function () {
+  transactionsSection.style.display = "block"
+  addMoneySection.style.display = "none"
+  cashOutSection.style.display = "none"
+  transferMoneySection.style.display = "none"
+  getBonusSection.style.display = "none"
+  payBillSection.style.display = "none"
+
+  const formBtns = document.getElementsByClassName('form-btn');
+  for (const btn of formBtns) {
+    btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+    btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
+
+    document.getElementById('transactions').classList.remove("border-[#0808081a]", "text-[#080808b3]");
+    document.getElementById('transactions').classList.add("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
   }
 })
 
