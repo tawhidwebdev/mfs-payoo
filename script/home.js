@@ -153,9 +153,9 @@ payNowBtn.addEventListener('click', function (e) {
     return;
   }
 
-  if(billerAccountNumber === validAccountNumber && pin === validPIN){
+  if (billerAccountNumber === validAccountNumber && pin === validPIN) {
     alert("Pay bill successful !");
-  }else{
+  } else {
     alert("Wrong credential");
     return;
   }
@@ -163,7 +163,7 @@ payNowBtn.addEventListener('click', function (e) {
   const newAbailableBlance = availableBalance - amount;
   document.getElementById('available-balance').innerText = newAbailableBlance;
   console.log(newAbailableBlance);
-  
+
 })
 
 // Toggling functionality
@@ -179,28 +179,90 @@ const transferMoneySection = document.getElementById('transfer-money-section');
 const getBonus = document.getElementById('get-bonus');
 const getBonusSection = document.getElementById('get-bonus-section');
 
+const payBill = document.getElementById('pay-bill');
+const payBillSection = document.getElementById('pay-bill-section');
+
+const transactions = document.getElementById('transactions');
+const transactionsSection = document.getElementById('transactions-section');
+
 addMoney.addEventListener('click', function () {
   addMoneySection.style.display = "block"
   cashOutSection.style.display = "none"
   transferMoneySection.style.display = "none"
   getBonusSection.style.display = "none"
-})
+  payBillSection.style.display = "none"
+
+  const formBtns = document.getElementsByClassName('form-btn');
+  for (const btn of formBtns) {
+    btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+    btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
+
+    document.getElementById('add-money').classList.remove("border-[#0808081a]", "text-[#080808b3]");
+    document.getElementById('add-money').classList.add("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+  }
+});
 cashOut.addEventListener('click', function () {
   cashOutSection.style.display = "block"
   addMoneySection.style.display = "none"
   transferMoneySection.style.display = "none"
   getBonusSection.style.display = "none"
+  payBillSection.style.display = "none"
+
+  const formBtns = document.getElementsByClassName('form-btn');
+  for (const btn of formBtns) {
+    btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+    btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
+
+    document.getElementById('cash-out').classList.remove("border-[#0808081a]", "text-[#080808b3]");
+    document.getElementById('cash-out').classList.add("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+  }
 })
 transferMoney.addEventListener('click', function () {
   transferMoneySection.style.display = "block"
   addMoneySection.style.display = "none"
   cashOutSection.style.display = "none"
   getBonusSection.style.display = "none"
+  payBillSection.style.display = "none"
+
+  const formBtns = document.getElementsByClassName('form-btn');
+  for (const btn of formBtns){
+    btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+    btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
+
+    document.getElementById('transfer-money').classList.remove("border-[#0808081a]", "text-[#080808b3]");
+    document.getElementById('transfer-money').classList.add("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+  }
 })
 getBonus.addEventListener('click', function () {
   getBonusSection.style.display = "block"
   addMoneySection.style.display = "none"
   cashOutSection.style.display = "none"
   transferMoneySection.style.display = "none"
+  payBillSection.style.display = "none"
+
+  const formBtns = document.getElementsByClassName('form-btn');
+  for (const btn of formBtns){
+    btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+    btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
+
+    document.getElementById('get-bonus').classList.remove("border-[#0808081a]", "text-[#080808b3]");
+    document.getElementById('get-bonus').classList.add("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+  }
+})
+payBill.addEventListener('click', function () {
+  payBillSection.style.display = "block"
+  addMoneySection.style.display = "none"
+  cashOutSection.style.display = "none"
+  transferMoneySection.style.display = "none"
+  getBonusSection.style.display = "none"
+
+  const formBtns = document.getElementsByClassName('form-btn');
+  for (const btn of formBtns){
+    btn.classList.remove("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+    btn.classList.add("border-[#0808081a]", "text-[#080808b3]");
+
+    document.getElementById('pay-bill').classList.remove("border-[#0808081a]", "text-[#080808b3]");
+    document.getElementById('pay-bill').classList.add("border-[#0874F2]", "text-[#0874F2]", "bg-[#0874f20d]");
+  }
 })
 

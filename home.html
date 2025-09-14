@@ -38,34 +38,34 @@
       Cashout charge is low and </p>
     <div class="grid grid-cols-3 gap-4 py-6">
       <div id="add-money"
-        class="px-2.5 py-5 border border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
+        class="form-btn px-2.5 py-5 text-[#080808b3] border border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
         <img src="./images/wallet1.png" alt="">
-        <span class="text-sm/normal text-[#080808b3] font-normal">Add Money</span>
+        <span class="text-sm/normal font-normal">Add Money</span>
       </div>
       <div id="cash-out"
-        class="px-2.5 py-5 border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
+        class="form-btn px-2.5 py-5 text-[#080808b3] border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
         <img src="./images/send1.png" alt="">
-        <span class="text-sm/normal text-[#080808b3] font-normal">Cashout</span>
+        <span class="text-sm/normal font-normal">Cashout</span>
       </div>
       <div id="transfer-money"
-        class="px-2.5 py-5 border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
+        class="form-btn px-2.5 py-5 text-[#080808b3] border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
         <img src="./images/money1.png" alt="">
-        <span class="text-sm/normal text-[#080808b3] font-normal">Transfer Money</span>
+        <span class="text-sm/normal font-normal">Transfer Money</span>
       </div>
       <div id="get-bonus"
-        class="px-2.5 py-5 border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
+        class="form-btn px-2.5 py-5 text-[#080808b3] border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
         <img src="./images/bonus1.png" alt="">
-        <span class="text-sm/normal text-[#080808b3] font-normal">Get Bonus</span>
+        <span class="text-sm/normal font-normal">Get Bonus</span>
       </div>
-      <div id="pay_bill"
-        class="px-2.5 py-5 border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
+      <div id="pay-bill"
+        class="form-btn px-2.5 py-5 text-[#080808b3] border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
         <img src="./images/purse1.png" alt="">
-        <span class="text-sm/normal text-[#080808b3] font-normal">Pay Bill</span>
+        <span class="text-sm/normal font-normal">Pay Bill</span>
       </div>
       <div id="transactions"
-        class="px-2.5 py-5 border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
+        class="form-btn px-2.5 py-5 text-[#080808b3] border-1 border-[#0808081a] flex flex-col items-center justify-center gap-y-2 rounded-xl cursor-pointer">
         <img src="./images/transaction1.png" alt="">
-        <span class="text-sm/normal text-[#080808b3] font-normal">Transactions</span>
+        <span class="text-sm/normal font-normal">Transactions</span>
       </div>
     </div>
   </div>
@@ -145,7 +145,7 @@
     </div>
 
     <!-- Get bonus section -->
-     <div id="get-bonus-section" class="bg-[#F4F5F7] px-6 pb-7 mt-8 hidden">
+    <div id="get-bonus-section" class="bg-[#F4F5F7] px-6 pb-7 mt-8 hidden">
       <h2 class="text-[18px] text-[#080808e6] font-semibold mb-4">Get Bonus</h2>
       <div class="flex items-center justify-center w-full">
         <div class="bg-white p-9 rounded-3xl w-full">
@@ -166,8 +166,8 @@
         <div class="bg-white p-9 rounded-3xl w-full">
           <fieldset class="fieldset w-full text-base font-medium border-0">
             <legend class="fieldset-legend">Select To Payk</legend>
-            <input id="pay-bill-bank-account" type="text" class="input bg-[#F4F5F7] rounded-4xl" placeholder="Select back"
-              list="browsers" />
+            <input id="pay-bill-bank-account" type="text" class="input bg-[#F4F5F7] rounded-4xl"
+              placeholder="Select back" list="browsers" />
             <datalist id="browsers">
               <option value="Sonali Bank"></option>
               <option value="AB Bank"></option>
@@ -179,8 +179,7 @@
             <input id="biller-account-number" type="text" class="input bg-[#F4F5F7] rounded-4xl"
               placeholder="Enter account number" />
             <legend class="fieldset-legend">Amount to Pay</legend>
-            <input id="pay-amount" type="text" class="input bg-[#F4F5F7] rounded-4xl"
-              placeholder="Add Amount to pay" />
+            <input id="pay-amount" type="text" class="input bg-[#F4F5F7] rounded-4xl" placeholder="Add Amount to pay" />
             <legend class="fieldset-legend ">Pin Number</legend>
             <input id="pay-bill-pin" type="text" class="input bg-[#F4F5F7] rounded-4xl"
               placeholder="Enter 4 Digit Pin" />
@@ -190,8 +189,8 @@
       </div>
     </div>
 
-  </div>
-  <script src="./script/home.js"></script>
+    
+    <script src="./script/home.js"></script>
 </body>
 
 </html>
